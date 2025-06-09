@@ -4,6 +4,7 @@ import { ThemedView } from '../../components/ThemedView';
 import { useState, useEffect } from 'react';
 import * as FileSystem from 'expo-file-system';
 import { formatBytes, formatDate } from '../utils/fileHelper';
+import InfoRow from '@/components/InfoRow';
 import styles from "../../assets/styles/styles";
 
 export default function HomeScreen() {
@@ -28,20 +29,6 @@ export default function HomeScreen() {
 
 		fetchStorageInfo();
 	}, []);
-
-	type InfoRowProps = {
-		label: string;
-		value: number;
-	};
-	
-	const InfoRow = ({ label, value }: InfoRowProps) => (
-		<ThemedView style={styles.infoRow}>
-			<ThemedText type="body">{label}</ThemedText>
-			<ThemedText type="body" style={{ fontWeight: '500' }}>
-				{formatBytes(value)}
-			</ThemedText>
-		</ThemedView>
-	);
 	
 
 	const { totalSpace, freeSpace, usedSpace } = storageInfo;
