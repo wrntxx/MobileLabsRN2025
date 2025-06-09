@@ -1,6 +1,6 @@
 import { ThemedText } from './ThemedText';
 import { ThemedView } from './ThemedView';
-import styles from '../assets/styles.js';
+import styles from '../assets/styles/styles.js';
 import { formatBytes } from '../app/utils/fileHelper';
 
 type InfoRowProps = {
