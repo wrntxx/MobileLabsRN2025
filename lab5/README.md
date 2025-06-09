@@ -1,15 +1,12 @@
-# Лабораторна робота 3
+# Лабораторна робота 5
 
 Скріни з історію комітів нижче
 
 ## Скріншоти
 
-![1](screenshots/Screenshot_1.png)
-![2](screenshots/Screenshot_2.png)
 
 # Історія комітів
 
-![3](screenshots/Screenshot_3.png)
 
 ### Як запустити
 
