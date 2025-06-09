@@ -1,12 +1,17 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import styles from '../../assets/styles/styles';
 
 const TaskItem = ({title, completed}) => {
   return (
-    <View>
+    <View style={styles.taskItem}>
       <View
+        style={[
+          styles.taskStatus,
+          {backgroundColor: completed ? '#2ecc71' : '#bdc3c7'},
+        ]}
       />
-      <Text >{title}</Text>
+      <Text style={styles.taskTitle}>{title}</Text>
     </View>
   );
 };

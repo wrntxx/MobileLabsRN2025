@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, FlatList} from 'react-native';
 import TaskItem from '../components/TaskItem';
+import styles from '../../assets/styles/styles';
 import initialTasks from '../../assets/data/taskData';
 
 const TasksScreen = ({route}) => {
@@ -48,14 +49,15 @@ const TasksScreen = ({route}) => {
   );
 
   return (
-    <View >
-      <View >
-        <Text >Current Score: {score}</Text>
+    <View style={styles.container}>
+      <View style={styles.scoreContainer}>
+        <Text style={styles.scoreText}>Current Score: {score}</Text>
       </View>
       <FlatList
         data={tasks}
         renderItem={renderItem}
         keyExtractor={item => item.id}
+        contentContainerStyle={styles.listContainer}
         ItemSeparatorComponent={() => <View style={{height: 8}} />}
         showsVerticalScrollIndicator={false}
       />

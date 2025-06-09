@@ -19,8 +19,9 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import ClickableObject from '../components/ClickableObject';
+import styles from '../../assets/styles/styles';
 
-const imageUrl = '';
+const imageUrl = 'https://coinspot.io/wp-content/uploads/2024/09/snimok-ekrana-2024-09-15-v-17.03.12.png';
 
 const GestureButtons = ({ gestureMode, setGestureMode }) => {
   const buttons = [
@@ -33,13 +34,17 @@ const GestureButtons = ({ gestureMode, setGestureMode }) => {
   ];
 
   return (
-    <View>
+    <View style={styles.gestureButtonsContainer}>
       {buttons.map(btn => (
         <TouchableOpacity
           key={btn.mode}
           onPress={() => setGestureMode(btn.mode)}
+          style={[
+            styles.gestureButton,
+            gestureMode === btn.mode && styles.activeGestureButton,
+          ]}
         >
-          <Text>{btn.label}</Text>
+          <Text style={styles.gestureButtonText}>{btn.label}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -65,7 +70,7 @@ const GestureHandlerSwitcher = ({ gestureMode, animatedStyle, refs, handlers }) 
 
   const renderGestureWrapper = (Wrapper, props, children) => (
     <Wrapper {...props}>
-      <Animated.View>
+      <Animated.View style={animatedStyle}>
         {children}
       </Animated.View>
     </Wrapper>
@@ -88,7 +93,7 @@ const GestureHandlerSwitcher = ({ gestureMode, animatedStyle, refs, handlers }) 
               if (nativeEvent.state === State.ACTIVE) onDoubleTap();
             }}
           >
-            <Animated.View>
+            <Animated.View style={animatedStyle}>
               <ClickableObject imageUrl={imageUrl} text="Tap me!" />
             </Animated.View>
           </TapGestureHandler>
@@ -139,7 +144,7 @@ const GestureHandlerSwitcher = ({ gestureMode, animatedStyle, refs, handlers }) 
   };
 
   return gestures[gestureMode] || (
-    <Animated.View>
+    <Animated.View style={animatedStyle}>
       <ClickableObject imageUrl={imageUrl} text="Select gesture!" />
     </Animated.View>
   );
@@ -234,9 +239,9 @@ const HomeScreen = ({ navigation }) => {
   }));
 
   return (
-    <GestureHandlerRootView>
-      <Text >Score: {score}</Text>
-      <Text >Last Gesture: {lastGesture}</Text>
+    <GestureHandlerRootView style={styles.container}>
+      <Text style={styles.scoreText}>Score: {score}</Text>
+      <Text style={styles.lastGestureText}>Last Gesture: {lastGesture}</Text>
 
       <GestureHandlerSwitcher
         gestureMode={gestureMode}
@@ -260,6 +265,7 @@ const HomeScreen = ({ navigation }) => {
       <GestureButtons gestureMode={gestureMode} setGestureMode={setGestureMode} />
 
       <TouchableOpacity
+        style={styles.tasksButton}
         onPress={() =>
           navigation.navigate('Tasks', {
             score,
@@ -273,7 +279,7 @@ const HomeScreen = ({ navigation }) => {
           })
         }
       >
-        <Text>View Tasks</Text>
+        <Text style={styles.tasksButtonText}>View Tasks</Text>
       </TouchableOpacity>
     </GestureHandlerRootView>
   );
