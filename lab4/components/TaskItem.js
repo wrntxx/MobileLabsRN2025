@@ -1,17 +1,18 @@
 import { View, Text, TouchableOpacity } from 'react-native';
+import { styles } from '../assets/styles/style';
   
 export default function TaskItem({ item, onDelete }) {
   return (
-    <View >
-      <View >
-        <Text >{item.text}</Text>
+    <View style={styles.taskItem}>
+      <View style={styles.taskInfo}>
+        <Text style={styles.taskText}>{item.text}</Text>
         {item.description ? (
-          <Text >{item.description}</Text>
+          <Text style={styles.taskDescription}>{item.description}</Text>
         ) : null}
-        <Text >нагадування: {item.reminderTime}</Text>
+        <Text style={styles.reminderTime}>нагадування: {item.reminderTime}</Text>
       </View>
-      <TouchableOpacity  onPress={() => onDelete(item.id)}>
-        <Text >Видалити</Text>
+      <TouchableOpacity style={styles.deleteButton} onPress={() => onDelete(item.id)}>
+        <Text style={styles.deleteButtonText}>Видалити</Text>
       </TouchableOpacity>
     </View>
   );

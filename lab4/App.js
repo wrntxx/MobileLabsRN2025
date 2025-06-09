@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import * as NotifManager from 'expo-notifications';
 import InputArea from './components/TaskInputForm';
 import ItemDisplay from './components/TaskItem';
+import { styles } from './assets/styles/style';
 
 NotifManager.setNotificationHandler({
   handleNotification: async () => ({
@@ -74,8 +75,8 @@ export default function EntryPoint() {
   };
 
   return (
-    <View >
-      <Text >Daily Planner</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Daily Planner</Text>
       <InputArea onAddTask={appendEntry} />
       <FlatList
         data={userEntries}
