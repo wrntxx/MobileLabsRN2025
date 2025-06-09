@@ -4,7 +4,13 @@
 
 ## Скріншоти
 
+![1](screenshots/Screenshot_1.png)
+![2](screenshots/Screenshot_2.png)
+![3](screenshots/Screenshot_3.png)
+
 ## Git
+
+![4](screenshots/Screenshot_4.png)
 
 ### Як запустити
 
