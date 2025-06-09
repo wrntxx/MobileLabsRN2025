@@ -4,7 +4,12 @@
 
 ## Скріншоти
 
+![1](screenshots/Screenshot_3.png)
+![2](screenshots/Screenshot_4.png)
+
 # Історія комітів
+
+![3](screenshots/Screenshot_1.png)
 
 ### Як запустити
 
